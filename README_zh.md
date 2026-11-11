@@ -1,6 +1,15 @@
-﻿# Edgi_Talk_M33_Template 示例工程
+﻿# Edgi_Talk 课程项目工程（环境声音提醒 + 实时字幕）
 
 **中文** | [**English**](./README.md)
+
+> **先看这个：[`BUILD.md`](./BUILD.md)** —— 怎么编译、怎么看串口日志、你的模块怎么接进来。
+>
+> 本仓库已经从裸模板改造成课程项目工程：`applications/m33/` 里是公共采音层、
+> 模式切换和四个模块的空实现，在任何人写真实逻辑之前，工程就能编译并跑通全流程。
+>
+> **有两个目录故意没进仓库**：`libraries/` 和 `tools/`（265 MB + 162 MB 的厂商 SDK）。
+> 见 [`BUILD.md` 第 1.1 节](./BUILD.md)，不补齐会编译失败。
+> `libraries/HAL_Drivers/` **已经提交**，因为它的 `drv_pdm.c` 注册了工程依赖的 `mic0` 设备。
 
 ## 简介
 

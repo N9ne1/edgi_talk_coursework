@@ -50,7 +50,21 @@ Midea-X1
 _cfg_backup_*/
 
 # ---------- Third-party weight ----------
-# 265 MB Infineon vendor tree, re-fetchable from RT-Thread Studio
-/libraries
+# The BSP driver layer is NOT pure third-party: drv_pdm.c registers the "mic0"
+# audio device the whole project depends on, and drv_i2s.c shares its clock.
+# If they are missing, every teammate silently falls back to the synthetic
+# waveform in applications/m33/src/edgi_audio_capture.c and never notices.
+#
+# NOTE: git never re-includes anything inside an excluded *directory*, so
+# /libraries cannot be excluded as a whole. Every heavy sub-tree is listed
+# explicitly instead, which leaves HAL_Drivers trackable.
+/libraries/components/
+/libraries/Common/
+/libraries/M33_Config/
+/libraries/M55_Config/
+
 # 162 MB of host-side tools (device configurator, fw tools); not buildable source
 /tools
+
+# ---------- Local scratch files ----------
+_tmp_*

@@ -5,6 +5,18 @@ Coursework repository based on the `Edgi_Talk_M33_Template` RT-Thread project
 
 [**中文**](./README_zh.md) | **English**
 
+> **Start here:** [`BUILD.md`](./BUILD.md) — how to build the project, how to get
+> serial logs, and how each member plugs their module in. (Written in Chinese.)
+>
+> This is no longer a bare template. `applications/m33/` contains the shared audio
+> capture layer, the mode switch, and stub implementations of all four modules,
+> so the project compiles and runs end-to-end before anyone writes real logic.
+>
+> **Two directories are intentionally not in the repo:** `libraries/` and `tools/`
+> (265 MB + 162 MB of vendor SDK). See [`BUILD.md` §1.1](./BUILD.md) — you must
+> restore them or the build fails. `libraries/HAL_Drivers/` **is** tracked, because
+> its `drv_pdm.c` registers the `mic0` device the project depends on.
+
 ## Introduction
 
 This template project is based on the **Edgi-Talk platform** and runs a minimal **RT-Thread** application on the Cortex-M33 core.
