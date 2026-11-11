@@ -1,0 +1,23 @@
+# -*- coding: gbk -*-
+# Edgi-Talk M33 - applications/m33
+# This file is maintained by member 5 (audio capture + mode switch + integration).
+# Put a .c file into src/ and it is compiled automatically; put a header into include/.
+import os
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob('src/*.c')
+inc = [os.path.join(cwd, 'include')]
+
+group = DefineGroup('edgi_m33', src, depend=[''], CPPPATH=inc)
+
+# Optional: prebuilt static libs (for example a model exported by DEEPCRAFT Studio)
+# placed under m33/libs/ are linked automatically.
+libdir = os.path.join(cwd, 'libs')
+if os.path.isdir(libdir):
+    libs = [f[3:-2] for f in os.listdir(libdir) if f.startswith('lib') and f.endswith('.a')]
+    if libs:
+        group = group + DefineGroup('edgi_m33_libs', [], depend=[''],
+                                    LIBS=libs, LIBPATH=[libdir])
+
+Return('group')

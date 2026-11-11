@@ -1,0 +1,56 @@
+# ---------- Build outputs ----------
+build/
+Debug/
+documentation/html
+*.o
+*.obj
+*.out
+*.d
+*.dep
+*.i
+*.lib
+*.map
+*.elf
+*.hex
+*.axf
+*.uimg
+!proj_cm33_s_signed.hex
+
+# ---------- Debugger / IDE artifacts ----------
+*.pyc
+*.pyo
+*.dblite
+.sconsign.dblite
+*.exe
+*.pdb
+*.idb
+*.ilk
+*.old
+*~
+.DS_Stor*
+.vscode
+JLinkLog.txt
+JLinkSettings.ini
+DebugConfig/
+RTE/
+settings/
+*.uvguix*
+cconfig.h
+GPATH
+GRTAGS
+GTAGS
+.config 3
+.config 4
+.config 5
+Midea-X1
+
+# ---------- Local backups ----------
+*.bak
+*.bak_*
+_cfg_backup_*/
+
+# ---------- Third-party weight ----------
+# 265 MB Infineon vendor tree, re-fetchable from RT-Thread Studio
+/libraries
+# 162 MB of host-side tools (device configurator, fw tools); not buildable source
+/tools
